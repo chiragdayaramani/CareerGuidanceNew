@@ -148,3 +148,6 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+
+SILENCED_SYSTEM_CHECKS = ['mysql.E001']

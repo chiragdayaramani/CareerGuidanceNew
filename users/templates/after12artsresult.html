@@ -2,8 +2,144 @@
 {% load static %}         
 {% block body_content %}
 <br>
-<p> "Congratulations! You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path."</p>
-<p> Your Result Is: </p>
+<div class = "image"  class="center"  style = "display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;">
+<img class="modal-icon u-imgResponsive" src="https://dl.dropboxusercontent.com/s/e1t2hhowjcrs7f5/100daysui_100icon.png" alt="Trophy"  />
+<h1 style = "padding-left: 59px;"> Congratulations!</h1> 
+
+</div>
+<h5>You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path.</h5> 
+<br>
+{% comment %} 
+
+<h5> Your Result Is: </h8> {% endcomment %}
+<br>
+<table class="table table-striped">
+	<thead>
+		<tr>
+		  <th scope="col">Stream</th>
+		  <th scope="col">Interest</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <th scope="row">Interior Designing </th>
+		  <td>{{perI}}%</td>
+		</tr>
+		<tr>
+			<th scope="row">Journalism and mass communication</th>
+			<td>{{perJ}}%</td>
+		  </tr>
+		  <tr>
+			<th scope="row">Fashion Technology </th>
+			<td>{{perF}}%</td>
+		  </tr>
+		  <tr>
+			<th scope="row">Hotel Management</th>
+			<td>{{perH}}%</td>
+		  </tr>
+	</tbody>
+  </table>
+  <br><br>
+{% if ic == jc and ic == fc and ic == hc %}
+	<h5>You are equally interested in 'Interior Designing','Hotel Management','Journalism and mass communication' and 'Fashion Technology'</h5><br>
+        <h8>Interpretation :-
+        Your score shows you have equal preferences in 'Interior Designing','Hotel Management','Journalism and mass communication' and 'Fashion Technology' related fields.
+        Overall we will prefer you to go towards Interior Designing field as it has scalability in future and is easy to change the field from Interior Designing to Journalism and mass communication and Fashion Technology 
+		</h8>
+{% elif ic == fc and ic == jc and ic > hc %}
+<h5>You are equally interested in 'Interior Designing','Fashion Technology' and 'Journalism and mass communication'</h5><br>
+		<h8>Interpretation :-
+		Your score shows you have equal preferences in 'Interior Designing','Fashion Technology' and 'Journalism and mass communication'  related fields.
+		Overall we will prefer you to go towards Interior Designing field as it has scalability in future and is easy to change the field from Interior Designing to Journalism and mass communication and Fashion Technology
+		</h8>
+{% elif ic == fc and ic == hc and ic > jc %}
+<h5>You are equally interested in 'Interior Designing','Fashion Technology' and 'Hotel Management'</h5><br>
+<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Interior Designing','Fashion Technology' and 'Hotel Management' related fields.
+		Overall we will prefer you to go towards Interior Designing field as it has scalability in future and is easy to change the field from Interior Designing to Hotel Management and Fashion Technology
+</h8>
+{% elif ic == jc and ic == hc and ic > fc %}
+<h5>You are equally interested in 'Interior Designing','Hotel Management' and 'Journalism and mass communication'<h5><br>
+	<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Interior Designing','Hotel Management' and 'Journalism and mass communication' related fields.
+		Overall we will prefer you to go towards Interior Designing field as it has scalability in future and is easy to change the field from Interior Designing to Journalism and mass communication and Hotel Management
+	</h8>
+{% elif ic == jc and ic == hc and ic > fc %}
+<h5>You are equally interested in 'Hotel Management','Fashion Technology' and 'Journalism and mass communication'<h5><br>
+	<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Hotel Management','Fashion Technology' and 'Journalism and mass communication'  related fields.
+		Overall we will prefer you to go towards Hotel Management field as it has scalability in future and is easy to change the field from Hotel Management to Journalism and mass communication and Fashion Technology
+	</h8>
+{% elif ic == jc and ic > hc and ic > fc %}
+	<h5>You are equally interested in 'Interior Designing' and 'Journalism and mass communication'</h5><br>
+		<h8>Interpretation :-
+		Your score shows you have equal preferences in 'Interior Designing' and 'Journalism and mass communication'  related fields.
+		Overall we will prefer you to go towards Interior Designing field as it has scalability in future and is easy to change the field from Interior Designing to Journalism and mass communication 		
+	</h8>
+{% elif ic == fc and ic > jc and ic > hc %}
+	<h5>You are equally interested in 'Interior Designing' and 'Fashion Technology'</h5><br>
+		<h8>Interpretation :-
+		Your score shows you have equal preferences in 'Interior Designing' and 'Fashion Technology'  related fields.
+		Overall we will prefer you to go towards Interior Designing field as it has scalability in future and is easy to change the field from Interior Designing to Fashion Technology 
+	</h8>
+{% elif ic == hc and ic > fc and ic > jc %}
+	<h5>You are equally interested in 'Interior Designing' and 'Hotel Management'</h5><br>
+		<h8>Interpretation :-
+		Your score shows you have equal preferences in 'Interior Designing' and 'Hotel Management' related fields.
+		Overall we will prefer you to go towards Interior Designing field as it has scalability in future and is easy to change the field fromInterior Designing to Hotel Management
+	</h8>
+{% elif fc == hc and fc > ic and fc > jc %}
+	<h5>You are equally interested in 'Fashion Technology' and 'Hotel Management'</h5><br>
+		<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Fashion Technology' and 'Hotel Management' related fields.
+		Overall we will prefer you to go towards Hotel Management field as it has scalability in future and is easy to change the field from Hotel Management to Fashion Technology
+	</h8>
+{% elif jc == fc and jc > ic and jc > hc %}
+	<h5>You are equally interested in 'Journalism and mass communication' and 'Fashion Technology'</h5><br>
+		<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Journalism and mass communication' and 'Fashion Technology' related fields.
+		Overall we will prefer you to go towards Journalism and mass communication field as it has scalability in future and is easy to change the field from Journalism and mass communication to Fashion Technology
+	</h8>
+{% elif jc == hc and jc > ic and jc > fc %}
+	<h5>You are equally interested in 'Journalism and mass communication' and 'Hotel Management'</h5><br>
+		<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Journalism and mass communication' and 'Hotel Management' related fields.
+		Overall we will prefer you to go towards Hotel Management field as it has scalability in future and is easy to change the field from Hotel Management to Journalism and mass communication
+	</h8>
+{% elif fc > ic and fc > jc and fc > hc %}
+	<h5>You preferred 'Fashion Technology' the most, as compared to 'Hotel Management','Interior Designing' and 'Journalism and mass communication'</h5><br>
+		<h8> Interpretation:-
+        Your score on Fashion Technology quentionary was at a high level. You show formidable skills in designing and art work related fields.
+        Overall your ability scores indicate that you have great skills in perceiving Fashion Technology stream after 10th
+	</h8>
+{% elif jc >= fc and jc > ic and jc > hc %}
+	<h5>You preferred 'Journalism and mass communication' the most, as compared to 'Hotel Management','Interior Designing' and 'Fashion Technology'</h5><br>
+		<h8> Interpretation:-
+        Your score on Journalism and mass communication quentionary was at a high level. You show formidable skills in finance,banking and mannaging ajcounts related fields.
+        Overall your ability scores indicate that you have great skills in perceiving Journalism and mass communication stream after 10th
+    </h8>
+{% elif hc >= fc and hc >= jc and hc > ic %}
+	<h5>You preferred 'Hotel Management'the most, as compared to 'Interior Designing','Journalism and mass communication' and 'Fashion Technology'</h5><br>
+        <h8>Interpretation:-
+        Your score on Hotel Management quentionary was at a high level. You show formidable skills in computers related fields.
+        Overall your ability scores indicate that you have great skills in perceiving Hotel Management stream after 10th
+    </h8>
+{% else %}
+	<h5>You preferred 'Interior Designing'the most, as compared to 'Hotel Management','Journalism and mass communication' and 'Fashion Technology'</h5><br>
+		<h8> Interpretation:-
+        Your score on Interior Designing quentionary was at a high level. You show formidable skills in computers and medical related fields.
+        Overall your ability scores indicate that you have great skills in perceiving Interior Designing stream after 10th
+    </h8>	
+{% endif %}
+
+<br><br><br>
+
+
+<a href="{% url "feedbackform" %}" class="btn btn-info" role="button">Feedback Form</a>
+
 <br>
 <br>
 <br>

@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Result10Count, User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from users.models import After10, After12Arts, After12Commerce, After12Science ,After10colleges, After12engcolleges, After12medicolleges,After12commcolleges,After12artscolleges,result,result12arts,result12comm,result12sci
+from users.models import After10, After12Arts, After12Commerce, After12Science ,After10colleges, After12engcolleges, After12medicolleges,After12commcolleges,After12artscolleges,result,result12arts,result12comm,result12sci,Result12artsCount
 from .forms import SignUpForm, LoginForm
 from django.db.models.query_utils import DeferredAttribute
 import random
@@ -175,21 +175,57 @@ def after12artsresult(request):
         questions=get_questions12arts();
         form=request.POST.get("after12form")
         username = User.email
+        ic = 0
+        jc = 0
+        fc = 0
+        hc = 0
+        results = pd.DataFrame()
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename=file.csv'
+        results.to_csv(path_or_buf=response,sep=';',float_format='%.2f',index=False,decimal=",")
+        writer = csv.writer(response)  
+        writer.writerow(['question', 'answer', 'username', 'question_type','marks'])
         for question in questions:
-            #print(question.id)
-            # user_id = result.objects.get(user_id = user_id)
-            # ip = User.objects.get() # query the InsertIp object
-            # user = User.user # get the user using a . operator
             q_id=question.id
             option_selected=request.POST.get(str(q_id))
-            print(q_id, option_selected)
+            type=question.question_type
+            print(q_id, option_selected,type)
+            print(question.correct_answer == option_selected)
             if(q_id != None and option_selected!= None):
-                ans = result12arts(question = q_id,answer = option_selected,username = username )
+                ans = result(question = q_id,answer = option_selected,username = username,question_type=type, )
+                option_selected=(option_selected)
+                writer.writerow([q_id, option_selected, username, type,question.correct_answer == option_selected])
+                if (question.correct_answer == option_selected and type == 'I'):
+                    ic = ic+1
+                elif (question.correct_answer == option_selected and type == 'J'):
+                    jc = jc+1
+                elif (question.correct_answer == option_selected and type == 'F'):
+                    fc = fc+1
+                elif (question.correct_answer == option_selected and type == 'H'):
+                    hc = hc+1
                 ans.save()
-                flag=True   
-        print(username)      
-    return render(request, "after12artsresult.html", {'flag': flag})
-    
+                flag=True
+        countResult=Result12artsCount(username=username,count_ID=ic,count_Journalism=jc,count_Fashion =fc,count_Hotel=hc)   
+        countResult.save()
+        total = ic + jc + fc + hc
+        perI = int((ic/total) * 100)
+        perJ = int((jc/total) * 100)
+        perF = int((fc/total) * 100)
+        perH = int((hc/total) * 100)
+        print(ic,jc,fc,hc)
+        res = max(ic,jc,fc,hc)
+        print(username)
+        print(User.email) 
+        type = ["Interior","Journalism","Fashion","Hotel Management"]
+        marks = [ic,jc,fc,hc]
+        plt.bar(type, marks, color = ["#7594f3","#2557ed",  "#00ecff","#092169"], width = 0.5)
+        plt.title("SCORE CARD!")
+        plt.xlabel("Stream")
+        plt.ylabel("Marks")
+        plt.show()
+           
+    return render(request, "after12artsresult.html", {'flag': flag,'ic':ic,'jc':jc,'fc':fc,'hc':hc, 'res' : res,'total':total,'perI':perI,'perJ':perJ,'perF':perF,'perH':perH, })
+    return response
 def get_questions12comm():
     questions=After12Commerce.objects.all();
     return questions
@@ -293,4 +329,3 @@ def after12artscolleges(request):
         'colleges':colleges
     }
     return render(request, 'after12artscolleges.html',context)
-
