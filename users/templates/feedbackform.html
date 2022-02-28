@@ -1,0 +1,102 @@
+{% extends "base.html"%}
+{% load static %}         
+{% block body_content %}
+<br>
+<section class="mb-4">
+
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Feedback Form</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">Please fill the Feedback Form!!.</p>
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="name" name="name" class="form-control"  placeholder="Enter Your Name" required>
+                            <label for="name" class="">Your name</label>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Enter Your Email" required>
+                            <label for="email" class="">Your email</label>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="According to you which stream suits you?" required>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Select option</option>
+                                <option value="1">Science</option>
+                                <option value="2">Arts</option>
+                                <option value="3">Commerce</option>
+                                <option value="4">Diploma</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Do you want to attend any counselling Session?" required>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Select option</option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                              </select>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+                {% comment %} {% block 'js'%} 
+                <div class="container">
+                    <span id="Rate our website"></span>
+                  </div>
+                  
+                  <!-- rating.js file -->
+                  <script src="js/addons/feedback.js"></script>
+                  {% endblock %} {% endcomment %}
+            </form>
+<br><br>
+            <div class="text-center text-md-left">
+                <a class="btn btn-primary" onclick="myFunction()">Send</a>
+            </div>
+            <div class="status"></div>
+        </div>
+        
+
+    </div>
+
+</section>
+<script>
+	function myFunction() {
+	  alert("Congratulations! Your Response has been submitted");
+	}
+	</script>
+{% endblock %}

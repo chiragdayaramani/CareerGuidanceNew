@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block body_content %}      
+
+{% load crispy_forms_tags %}
+{%load static %} 
+ 
+<h1><center> After 12th Science Assessment Test...! </center></h1>
+
+<h2>Test Instructions:</h2>
+<p >This test consists of some questions that you will have to rate on the basis of how much you would enjoy performing each on a scale of (0) Dislike (1) Neutral (2) Enjoy This test will help you choose a career path based on your personality type and your interests in a particular field or subject.</p>
+<big>Make sure you answer ALL the questions.</big>
+<br><br><br><br>
+<h2><big><center>Begin your Assessment</center></big></h2>
+<h7> <center>(0) Dislike  (1) Neutral  (2) Enjoy</center> </h7>
+<form name="after12form" action = "{% url "after12sciresult" %}" method = "POST">
+	{% csrf_token %}
+	
+	<input type="hidden" id="questions" name="questions" value={{questions}} required>
+	{% for question in questions %}
+		<h5>{{question.question}} :-<h5>
+
+		<input type="radio"  name="{{question.id }}" value="0"required >
+		<label>Dislike </label>
+		<input type="radio" name="{{question.id }}" value="1"required >
+		<label>Neutral</label>
+		<input type="radio" name="{{question.id }}" value="2"required >
+		<label>Enjoy</label>
+		<hr style = "border: 1px solid grey">
+	{% endfor %}
+	<br>
+	<center><input class="btn btn-primary" type="submit" value="Submit Your answers" style = "font-size:20px" onclick="myFunction()" ></center>
+	<br>
+</form>
+ 
+<script>
+	function myFunction() {
+		required = True;
+	  alert("Congratulations! You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path.");
+	} 
+
+{% if flag %}
+alert("Congratulations! You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path.");
+document.location = "/users/after12sciresult";
+{%endif%}
+</script>     
+{% endblock %}

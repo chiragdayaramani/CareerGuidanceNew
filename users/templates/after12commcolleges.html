@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block body_content %}      
+
+{% load crispy_forms_tags %}
+{%load static %} 
+<br>
+ 
+<h3><center> After 12th Commerce Colleges </center></h3>
+<br>
+
+
+<div class="row">
+{% for college in colleges %}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ college.college_name }}</h5>
+        <p class="card-text">{{ college.college_address }}</p>
+        <p class="card-text">{{ college.phone_number }}</p>
+        <a href={{ college.website }} class="btn btn-primary">College Offical Link</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  
+</div>
+  
+
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends "base.html"%}
+{% load static %}         
+{% block body_content %}
+<br>
+<div class = "image"  class="center"  style = "display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;">
+<img class="modal-icon u-imgResponsive" src="https://dl.dropboxusercontent.com/s/e1t2hhowjcrs7f5/100daysui_100icon.png" alt="Trophy"  />
+<h1 style = "padding-left: 59px;"> Congratulations!</h1> 
+
+</div>
+<h5>You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path.</h5> 
+<br>
+{% comment %} 
+
+<h5> Your Result Is: </h8> {% endcomment %}
+<br>
+<table class="table table-striped">
+	<thead>
+		<tr>
+		  <th scope="col">Stream</th>
+		  <th scope="col">Interest</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <th scope="row">Science</th>
+		  <td>{{perS}}%</td>
+		</tr>
+		<tr>
+			<th scope="row">Arts</th>
+			<td>{{perA}}%</td>
+		  </tr>
+		  <tr>
+			<th scope="row">Commerce</th>
+			<td>{{perC}}%</td>
+		  </tr>
+		  <tr>
+			<th scope="row">Diploma</th>
+			<td>{{perD}}%</td>
+		  </tr>
+	</tbody>
+  </table>
+  <br><br>
+{% if sc == ac and sc == cc and sc == dc%}
+	<h5>You are equally interested in 'Science','Diploma','Commerce' and 'Arts'</h5><br>
+        <h8>Interpretation :-
+        Your score shows you have equal preferences in 'Science','Diploma','Commerce' and 'Arts' related fields.
+        Overall we will prefer you to go towards Science field as it has scalability in future and is easy to change the field from Science to Commerce and Arts 
+		</h8>
+{% elif sc == ac and sc == cc and sc > dc %}
+<h5>You are equally interested in 'Science','Arts' and 'Commerce'</h5><br>
+		<h8>Interpretation :-
+		Your score shows you have equal preferences in 'Science','Arts' and 'Commerce'  related fields.
+		Overall we will prefer you to go towards Science field as it has scalability in future and is easy to change the field from Science to Commerce and Arts
+		</h8>
+{% elif sc == ac and sc == dc and sc > cc %}
+<h5>You are equally interested in 'Science','Arts' and 'Diploma'</h5><br>
+<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Science','Arts' and 'Diploma' related fields.
+		Overall we will prefer you to go towards Science field as it has scalability in future and is easy to change the field from Science to Diploma and Arts
+</h8>
+{% elif sc == cc and sc == dc and sc > ac %}
+<h5>You are equally interested in 'Science','Diploma' and 'Commerce'<h5><br>
+	<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Science','Diploma' and 'Commerce' related fields.
+		Overall we will prefer you to go towards Science field as it has scalability in future and is easy to change the field from Science to Commerce and Diploma
+	</h8>
+{% elif sc == cc and sc == dc and sc > ac %}
+<h5>You are equally interested in 'Diploma','Arts' and 'Commerce'<h5><br>
+	<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Diploma','Arts' and 'Commerce'  related fields.
+		Overall we will prefer you to go towards Diploma field as it has scalability in future and is easy to change the field from Diploma to Commerce and Arts
+	</h8>
+{% elif sc == cc and sc > dc and sc > ac %}
+	<h5>You are equally interested in 'Science' and 'Commerce'</h5><br>
+		<h8>Interpretation :-
+		Your score shows you have equal preferences in 'Science' and 'Commerce'  related fields.
+		Overall we will prefer you to go towards Science field as it has scalability in future and is easy to change the field from Science to Commerce 		
+	</h8>
+{% elif sc == ac and sc > cc and sc > dc %}
+	<h5>You are equally interested in 'Science' and 'Arts'</h5><br>
+		<h8>Interpretation :-
+		Your score shows you have equal preferences in 'Science' and 'Arts'  related fields.
+		Overall we will prefer you to go towards Science field as it has scalability in future and is easy to change the field from Science to Arts 
+	</h8>
+{% elif sc == dc and sc > ac and sc > cc %}
+	<h5>You are equally interested in 'Science' and 'Diploma'</h5><br>
+		<h8>Interpretation :-
+		Your score shows you have equal preferences in 'Science' and 'Diploma' related fields.
+		Overall we will prefer you to go towards Science field as it has scalability in future and is easy to change the field fromScience to Diploma
+	</h8>
+{% elif ac == dc and ac > sc and ac > cc %}
+	<h5>You are equally interested in 'Arts' and 'Diploma'</h5><br>
+		<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Arts' and 'Diploma' related fields.
+		Overall we will prefer you to go towards Diploma field as it has scalability in future and is easy to change the field from Diploma to Arts
+	</h8>
+{% elif cc == ac and cc > sc and cc > dc %}
+	<h5>You are equally interested in 'Commerce' and 'Arts'</h5><br>
+		<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Commerce' and 'Arts' related fields.
+		Overall we will prefer you to go towards Commerce field as it has scalability in future and is easy to change the field from Commerce to Arts
+	</h8>
+{% elif cc == dc and cc > sc and cc > ac %}
+	<h5>You are equally interested in 'Commerce' and 'Diploma'</h5><br>
+		<h8>	Interpretation :-
+		Your score shows you have equal preferences in 'Commerce' and 'Diploma' related fields.
+		Overall we will prefer you to go towards Diploma field as it has scalability in future and is easy to change the field from Diploma to Commerce
+	</h8>
+{% elif ac > sc and ac > cc and ac > dc %}
+	<h5>You preferred 'Arts' the most, as compared to 'Diploma','Science' and 'Commerce'</h5><br>
+		<h8> Interpretation:-
+        Your score on Arts quentionary was at a high level. You show formidable skills in designing and art work related fields.
+        Overall your ability scores indicate that you have great skills in perceiving Arts stream after 10th
+	</h8>
+{% elif cc >= ac and cc > sc and cc > dc %}
+	<h5>You preferred 'Commerce' the most, as compared to 'Diploma','Science' and 'Arts'</h5><br>
+		<h8> Interpretation:-
+        Your score on Commerce quentionary was at a high level. You show formidable skills in finance,banking and mannaging accounts related fields.
+        Overall your ability scores indicate that you have great skills in perceiving Commerce stream after 10th
+    </h8>
+{% elif dc >= ac and dc >= cc and dc > sc %}
+	<h5>You preferred 'Diploma'the most, as compared to 'Science','Commerce' and 'Arts'</h5><br>
+        <h8>Interpretation:-
+        Your score on Diploma quentionary was at a high level. You show formidable skills in computers related fields.
+        Overall your ability scores indicate that you have great skills in perceiving Diploma stream after 10th
+    </h8>
+{% else %}
+	<h5>You preferred 'Science'the most, as compared to 'Diploma','Commerce' and 'Arts'</h5><br>
+		<h8> Interpretation:-
+        Your score on Science quentionary was at a high level. You show formidable skills in computers and medical related fields.
+        Overall your ability scores indicate that you have great skills in perceiving Science stream after 10th
+    </h8>	
+{% endif %}
+
+<br><br><br>
+
+
+<a href="{% url "feedbackform" %}" class="btn btn-info" role="button">Feedback Form</a>
+
+<br>
+<br>
+<br>
+<br><br><br><br><br><br><br><br>
+
+
+{% endblock %}

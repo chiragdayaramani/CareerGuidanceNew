@@ -1,0 +1,72 @@
+{% load static %} 
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container">
+
+  
+  <!-- Brand -->
+  <a class="navbar-brand" style:"text-algin: left"; href="{% url "home" %}" style = "font-size: X-large;color:#ADD8E6; text-shadow: 1px 1px white;">Shiksha : A career guide
+   <img width="100px" height="50px"  style = "margin-left: -400px"; src="{% static 'images/logo.jpeg' %} " >
+  </a>
+  
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" style = "margin-left: 260px";>
+        <a class="nav-link active" href="{% url "home" %}">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "about" %}">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "contact" %}">Contact Us</a>
+      </li>
+   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Colleges
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url "after10colleges" %}">After 10th</a>
+          <a class="dropdown-item"  href="{% url "after12engcolleges" %}">After 12th Engineering</a>
+          <a class="dropdown-item"  href="{% url "after12medicolleges" %}">After 12th Medical</a>
+          <a class="dropdown-item"  href="{% url "after12commcolleges" %}">After 12th Commerce</a>
+          <a class="dropdown-item"  href="{% url "after12artscolleges" %}">After 12th Arts</a>
+          
+          
+      </li>
+    
+    </ul> 
+   
+    
+      {% if form.is_valid %}
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a class="nav-link active" style = "font-size:20px;color:  #ADD8E6; text-shadow: 1px 1px white;" href="">Welcome, {{ user.email }}</a>
+        </li>
+        <li class="nav-item ">
+          <a class="btn btn-success" style = "margin-left: 46px ; padding: 10px 15px; font-size: 20px"; href="{% url "logout" %}">Log Out</a>
+        </li>
+      </ul>
+      
+      {% else %}
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a   class="btn btn-warning" style = "margin-right: -22px;  padding: 10px 15px; font-size: 20px" ; href="{% url "signup" %}">Register</a>
+      </li>
+      <li class="nav-item">
+        <a  class="btn btn-info" style = "margin-left: 46px; padding: 10px 15px; font-size: 20px" ;  href="{% url "login" %}">Login</a>
+      </li>
+      <li class="nav-item ">
+        <a class="btn btn-success" style = "margin-left: 46px ; padding: 10px 15px; font-size: 20px"; href="{% url "login" %}">Logout</a>
+      </li>
+    </ul>
+    {% endif %}
+      
+  </div>
+</div>
+</nav>
