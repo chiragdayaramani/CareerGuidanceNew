@@ -3,7 +3,7 @@ from itertools import count
 from turtle import color
 from django.shortcuts import redirect, render,HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from .models import Result10Count, User
+from .models import Result10Count, Result12commerceCount, User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from users.models import After10, After12Arts, After12Commerce, After12Science ,After10colleges, After12engcolleges, After12medicolleges,After12commcolleges,After12artscolleges,result,result12arts,result12comm,result12sci,Result12artsCount
@@ -241,20 +241,57 @@ def after12commresult(request):
         questions=get_questions12comm();
         form=request.POST.get("after12form")
         username = User.email
+        bcom_c = 0
+        baf_c = 0
+        bms_c = 0
+        ca_c = 0
+        results = pd.DataFrame()
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename=file.csv'
+        results.to_csv(path_or_buf=response,sep=';',float_format='%.2f',index=False,decimal=",")
+        writer = csv.writer(response)  
+        writer.writerow(['question', 'answer', 'username', 'question_type','marks'])
         for question in questions:
-            #print(question.id)
-            # user_id = result.objects.get(user_id = user_id)
-            # ip = User.objects.get() # query the InsertIp object
-            # user = User.user # get the user using a . operator
             q_id=question.id
             option_selected=request.POST.get(str(q_id))
-            print(q_id, option_selected)
+            type=question.question_type
+            print(q_id, option_selected,type)
+            print(question.correct_answer == option_selected)
             if(q_id != None and option_selected!= None):
-                ans = result12comm(question = q_id,answer = option_selected,username = username )
+                ans = result12comm(question = q_id,answer = option_selected,username = username,question_type=type, )
+                option_selected=(option_selected)
+                writer.writerow([q_id, option_selected, username, type,question.correct_answer == option_selected])
+                if (question.correct_answer == option_selected and type == 'B'):
+                    bcom_c +=1
+                elif (question.correct_answer == option_selected and type == 'F'):
+                    baf_c +=1
+                elif (question.correct_answer == option_selected and type == 'M'):
+                    bms_c +=1
+                elif (question.correct_answer == option_selected and type == 'C'):
+                    ca_c +=1
                 ans.save()
-                flag=True   
-        print(username)      
-    return render(request, "after12commresult.html", {'flag': flag})
+                flag=True
+        countResult=Result12commerceCount(username=username,count_BCOM=bcom_c,count_BAF=baf_c,count_BMS =bms_c,count_CA=ca_c)   
+        countResult.save()
+        total = bcom_c+baf_c+bms_c+ca_c
+        perB = int((bcom_c/total) * 100)
+        perF = int((baf_c/total) * 100)
+        perM = int((bms_c/total) * 100)
+        perC = int((ca_c/total) * 100)
+        print(bcom_c,baf_c,bms_c,ca_c)
+        res = max(bcom_c,baf_c,bms_c,ca_c)
+        print(username)
+        print(User.email) 
+        type = ["B.COM","BAF","BMS","CA"]
+        marks = [bcom_c,baf_c,bms_c,ca_c]
+        plt.bar(type, marks, color = ["#7594f3","#2557ed",  "#00ecff","#092169"], width = 0.5)
+        plt.title("SCORE CARD!")
+        plt.xlabel("Stream")
+        plt.ylabel("Marks")
+        plt.show()
+           
+    return render(request, "after12commresult.html", {'flag': flag,'bcom_c':bcom_c,'baf_c':baf_c,'bms_c':bms_c,'ca_c':ca_c, 'res' : res,'total':total,'perB':perB,'perF':perF,'perM':perM,'perC':perC, })
+    return response
     
 def get_questions12sci():
     questions=After12Science.objects.all();

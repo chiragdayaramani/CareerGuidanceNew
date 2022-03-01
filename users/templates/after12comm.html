@@ -20,12 +20,14 @@
 	{% for question in questions %}
 		<h5>{{question.question}} :-<h5>
 
-		<input type="radio"  name="{{question.id }}" value="0"required >
-		<label>Dislike </label>
-		<input type="radio" name="{{question.id }}" value="1"required >
-		<label>Neutral</label>
-		<input type="radio" name="{{question.id }}" value="2"required >
-		<label>Enjoy</label>
+		<input type="radio"  name="{{question.id }}" value= "{{question.op1}}"required >
+		<label>{{question.op1}} </label>
+		<input type="radio" name="{{question.id }}" value="{{question.op2}}"required >
+		<label>{{question.op2}} </label>
+		<input type="radio" name="{{question.id }}" value="{{question.op3}}"required >
+		<label>{{question.op3}} </label>
+		<input type="radio" name="{{question.id }}" value="{{question.op4}}"required >
+		<label>{{question.op4}} </label>
 		<hr style = "border: 1px solid grey">
 	{% endfor %}
 	<br>

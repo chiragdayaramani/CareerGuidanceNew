@@ -19,6 +19,29 @@ Insert into `users_after10`(`id`, `question`,`question_type`,`correct_answer`,`o
  
 (17,'The major source of fresh water in India is','D','ground water','rainfall','ground water','atmospheric water','ocean water');
 
+
+Insert into `users_after12commerce`(`id`, `question`,`question_type`,`correct_answer`,`op1`,`op2`,`op3`,`op4`)values
+(1, 'What are the major new economic policies?','B','All of the above','Liberalization','Privatization','Globalization','All of the above'),
+(2,' Interpretation of financial statements includes','F','All of the above','Criticism and Analysis','Comparison and Trend Study','Drawing Conclusion','All of the above'),
+(3, 'Which of the following is not a tangible asset?','M','Trademarks','Machinery','Trademarks','Factories','Offices'),
+(4,'In the receipts and payments account, which one is shown?','C',' Depreciation','Outstanding salary',' Depreciation','Life Membership Fees','Accrued Subscription'),
+(5, 'The capital that is consumed by economy or a firm in the production process is known as','B','Depreciation','Capital loss','Production cost','Dead-weight loss','Depreciation'),
+(6,'Trend ratios and trend percentage are used in','F','Horizontal analysis','Dynamic analysis','Horizontal analysis','Vertical analysis','Static analysis'),
+(7, 'Which of the following describes the nature of management principles?','M','All of the above','Universal applicability','General guidelines','Flexibility','All of the above'),
+(8, 'In case of partnership the act of any partner is ','C','Binding on all partners','Binding on all partners','Binding on that partner only','Binding on all partners except that particular partner','None of the above'),
+(9, 'Who propounded the opportunity cost theory of international trade?','B','Haberler','Ricardo','Marshall','Heckscher and Ohlin','Haberler'),
+(10,'The analysis of a financial statement by a shareholder is an example of?','F','External Analysis','External Analysis','Horizontal Analysis','Dynamic Analysis','Static analysis'),
+(11, 'This decision relates to how the firm’s funds are invested in different assets,','M','Investment decision','Investment decision','Financing decision','Dividend decision','None of the above'),
+(12, 'Which of the following is included while computing the value of supply of goods under GST? ','C','All of the above','Price of the goods ','Packing charges of the goods ','Tax levied by Municipal Authority on sale of the goods','All of the above'),
+(13, 'The cost of one thing in terms of alternatives given up is called as?','B','Opportunity cost','Opportunity cost','Production cost','Physical cost','Real cost'),
+(14,' Which of the following is not a financial market function?','F','Floating of companies','Price determination of securities','Mobilization of savings','Floating of companies','Lowering transaction cost'),
+(15, 'Purchasing a new machine to replace an existing one is an example of','M','Capital budgeting decision','Financing decision','Dividend decision','Working capital decision','Capital budgeting decision'),
+(16, 'Current ratio is equal to : ','C','Current Assets/ Current Liabilities','Current Liabilities / Current Assets ','Current Assets/ Current Liabilities ','Current Liabilities - Current Assets','None of the above'),
+(17, 'A mixed economy is characterized by the coexistence of?','B','Public and private sectors','Modern and traditional industriest','Public and private sectors','Foreign and domestic investments','Commercial and subsistence farming'),
+(18,' Which of the following is a financial instrument','F','Treasury bill','Unit of mutual funds',' Debenture','Treasury bill','Bond'),
+(19, 'The size of assets, the profitability and competitiveness are all affected by','M','Capital budgeting decision','Working capital decision','Capital budgeting decision','Financing decision','Dividend decision'),
+(20,'Current ratio is equal to :','C','Current Assets/ Current Liabilities',' Current Liabilities / Current Asset','Current Assets/ Current Liabilities','Current Liabilities - Current Assets','None of the above');
+
 INSERT INTO  `users_after10colleges`(`id`,`college_name`, `college_address`, `phone_number`,`website`) VALUES
 (NULL,'ST. XAVIERS COLLEGE FORT MUMBAI', 'Mahapalika Marg, Dhobi Talao, Chhatrapati Shivaji Terminus Area, Fort, Mumbai, Maharashtra 400001' , '022 2262 0661', 'https://xaviers.edu/main/'),
 (NULL, 'B K BIRLA COLLEGE KALYAN','Birla College Campus Rd, Gauripada, Kalyan, Maharashtra 421301', '0251 223 1294','https://www.bkbirlacollegekalyan.com/'),

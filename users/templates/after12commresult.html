@@ -2,12 +2,63 @@
 {% load static %}         
 {% block body_content %}
 <br>
-<p> "Congratulations! You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path."</p>
-<p> Your Result Is: </p>
+<div class = "image"  class="center"  style = "display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;">
+<img class="modal-icon u-imgResponsive" src="https://dl.dropboxusercontent.com/s/e1t2hhowjcrs7f5/100daysui_100icon.png" alt="Trophy"  />
+<h1 style = "padding-left: 59px;"> Congratulations!</h1> 
+
+</div>
+<h5>You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path.</h5> 
+<br>
+{% comment %} 
+
+<h5> Your Result Is: </h8> {% endcomment %}
+<br>
+<table class="table table-striped">
+	<thead>
+		<tr>
+		  <th scope="col">Stream</th>
+		  <th scope="col">Interest</th>
+		</tr>
+	  </thead>
+	  {% comment %} <tbody>
+		<tr>
+		  <th scope="row">Interior Designing </th>
+		  <td>{{perI}}%</td>
+		</tr>
+		<tr>
+			<th scope="row">Journalism and mass communication</th>
+			<td>{{perJ}}%</td>
+		  </tr>
+		  <tr>
+			<th scope="row">Fashion Technology </th>
+			<td>{{perF}}%</td>
+		  </tr>
+		  <tr>
+			<th scope="row">Hotel Management</th>
+			<td>{{perH}}%</td>
+		  </tr>
+	</tbody> {% endcomment %}
+  </table>
+  <br><br>
+
+
+<a href="{% url "feedbackform" %}" class="btn btn-info" role="button">Feedback Form</a>
+
 <br>
 <br>
 <br>
 <br><br><br><br><br><br><br><br>
+
+
+
+
+<h5>BAF:{{baf_c}}</h5>
+<h5>BMS:{{bms_c}}</h5>
+<h5>BCOM:{{bcom_c}}</h5>
+<h5>CA:{{ca_c}}</h5>
 
 
 {% endblock %}
