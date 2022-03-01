@@ -192,7 +192,7 @@ def after12artsresult(request):
             print(q_id, option_selected,type)
             print(question.correct_answer == option_selected)
             if(q_id != None and option_selected!= None):
-                ans = result(question = q_id,answer = option_selected,username = username,question_type=type, )
+                ans = result12arts(question = q_id,answer = option_selected,username = username,question_type=type, )
                 option_selected=(option_selected)
                 writer.writerow([q_id, option_selected, username, type,question.correct_answer == option_selected])
                 if (question.correct_answer == option_selected and type == 'I'):
