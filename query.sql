@@ -42,6 +42,30 @@ Insert into `users_after12commerce`(`id`, `question`,`question_type`,`correct_an
 (19, 'The size of assets, the profitability and competitiveness are all affected by','M','Capital budgeting decision','Working capital decision','Capital budgeting decision','Financing decision','Dividend decision'),
 (20,'Current ratio is equal to :','C','Current Assets/ Current Liabilities',' Current Liabilities / Current Asset','Current Assets/ Current Liabilities','Current Liabilities - Current Assets','None of the above');
 
+
+Insert into `users_after12science`(`id`, `question`,`question_type`,`correct_answer`,`op1`,`op2`,`op3`,`op4`)values
+(1, 'Which of the following is/are the levels of implementation of data structure?','E','All of the above','Abstract level','Application Level','Implementation level','All of the above'),
+(2, 'Which is the main language used by the aviation industry?','A','English','French','German','English','Hindi'),
+(3, 'Helper cells belong to?','M','T cells','T cells','Macrophages','B cells','Monocytes'),
+(4, 'Who was the author of the book named "Methods in Social Research"?','BR','Goode and Hatt','Kerlinger','CR Kothari','Goode and Hatt','Wilkinson'),
+(5, 'The stopping sight distance depends upon?','E','All of the above','Total reaction time of driver','Speed of vehicle','Efficiency of brakes','All of the above'),
+(6, "In Which year, the world's first air-to-ground voice transmission took place?",'A','1915','1915','1916','1917','1918'),
+(7, 'Screening test is not useful when?','M','Incidence is low in the community','Incidence of the disease','Incidence is low in the community','Early detection leads to favorable outcome','The disease has a lead time'),
+(8, 'What is the major attribute of Correlation Analysis?','BR','Association among variables','Association among variables','Difference among variables','Regression among variables','Variations among variables'),
+(9, 'Which of the following deals with the study of rates at which chemical reactions occur and the effect of various parameters on the rate?','E','Chemical Kinetics','Fluid Mechanics','Chemical Technology','Chemical Sciences','Chemical Kinetics'),
+(10, 'A lack of a pilot read-back contributed to __________ of the errors found in this analysis.','A','0.25','0.15','0.2','0.25','0.3'),
+(11, 'With urine turning green on ferric chloride test,the diagnosis is:','M','Phenylketonuria','Phenylketonuria','Alkaptonuria','Multiple carboxylase deficiency','Glutaric aciduria'),
+(12, 'What is the name of the conceptual framework in which the research is carried out?','BR','Research design','Research hypothesis','Synopsis of Research','Research paradigm','Research design'),
+(13, 'Which of the following is not the feature of a modern control system?','E','No oscillation','Correct power level','No oscillation','Quick response','Accuracy'),
+(14, 'Miscommunication is caused by mis-hearing by the pilots for?','A','0.28','0.07','0.18','0.28','0.45'),
+(15, 'Nerve not related to humerus is?','M','Musculocutaneous','Radial','Median','Axillary','Musculocutaneous'),
+(16, 'What is the main role of research in education?','BR','To help an applicant in becoming a renowned educationalist.',"To upsurge one's social status.","To increase one's job prospects.","To augment one's personal growth.",'To help an applicant in becoming a renowned educationalist.'),
+(17, 'In which type of chromatography, the stationary phase held in a narrow tube and the mobile phase is forced through it under pressure?','E','Column chromatography','Column chromatography','Planar chromatography','Liquid chromatography','Gas chromatography'),
+(18, 'Who invented the first American air-to-ground radio transmitter?','A','AT&T Labs','Los Alamos','AT&T Labs','CERN','Bell Labs'),
+(19, 'Medical treatment for BHP includes?','M','Finesteride','Finesteride','Methyl testosterone','Oestrogens','Osmic acid'),
+(20, 'Which of the following features are considered as critical in qualitative research?','BR','Collecting data with bottom-up empirical evidence.','Collecting data with the help of standardized research tools.','Design sampling with probability sample techniques.','Collecting data with bottom-up empirical evidence.','athering data with top-down schematic evidence.');
+
+
 INSERT INTO  `users_after10colleges`(`id`,`college_name`, `college_address`, `phone_number`,`website`) VALUES
 (NULL,'ST. XAVIERS COLLEGE FORT MUMBAI', 'Mahapalika Marg, Dhobi Talao, Chhatrapati Shivaji Terminus Area, Fort, Mumbai, Maharashtra 400001' , '022 2262 0661', 'https://xaviers.edu/main/'),
 (NULL, 'B K BIRLA COLLEGE KALYAN','Birla College Campus Rd, Gauripada, Kalyan, Maharashtra 421301', '0251 223 1294','https://www.bkbirlacollegekalyan.com/'),

@@ -2,12 +2,65 @@
 {% load static %}         
 {% block body_content %}
 <br>
-<p> "Congratulations! You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path."</p>
-<p> Your Result Is: </p>
+<div class = "image"  class="center"  style = "display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;">
+<img class="modal-icon u-imgResponsive" src="https://dl.dropboxusercontent.com/s/e1t2hhowjcrs7f5/100daysui_100icon.png" alt="Trophy"  />
+<h1 style = "padding-left: 59px;"> Congratulations!</h1> 
+
+</div>
+<h5>You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path.</h5> 
+<br>
+{% comment %} 
+
+<h5> Your Result Is: </h8> {% endcomment %}
+<br>
+<table class="table table-striped">
+	<thead>
+		<tr>
+		  <th scope="col">Stream</th>
+		  <th scope="col">Interest</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <th scope="row">ENGINEERING </th>
+		  <td>{{perE}}%</td>
+		</tr>
+		<tr>
+			<th scope="row">AVIATION</th>
+			<td>{{perA}}%</td>
+		  </tr>
+		  <tr>
+			<th scope="row">MBBS </th>
+			<td>{{perM}}%</td>
+		  </tr>
+		  <tr>
+			<th scope="row">BSC & RESEARCH</th>
+			<td>{{perB}}%</td>
+		  </tr>
+	</tbody>
+  </table>
+  <br><br>
+
+
+
+<br><br><br>
+
+
+<a href="{% url "feedbackform" %}" class="btn btn-info" role="button">Feedback Form</a>
+
 <br>
 <br>
 <br>
 <br><br><br><br><br><br><br><br>
 
+
+
+<h5>ENGG:{{engg_c}}</h5>
+<h5>AVI:{{avi_c}}</h5>
+<h5>MBBS:{{mbbs_c}}</h5>
+<h5>BSC:{{bsc_c}}</h5>
 
 {% endblock %}
