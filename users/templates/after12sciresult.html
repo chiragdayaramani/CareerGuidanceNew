@@ -44,7 +44,86 @@ width: 50%;">
   </table>
   <br><br>
 
-
+  {% if bc == ec and bc == ac and bc == mc%}
+  <p>You are equally interested in 'B Sc In Research','MBBS','Aviation' and 'Engineering'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'B Sc In Research','MBBS','Aviation' and 'Engineering' related fields.
+  </p>
+{% elif bc == ec and bc == ac and bc > mc %}
+  <p>You are equally interested in 'B Sc In Research','Aviation' and 'Engineering'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'B Sc In Research','Aviation' and 'Engineering' related fields.
+  </p>
+{% elif bc == ec and bc == mc and bc > ac %}
+  <p>You are equally interested in 'B Sc In Research','MBBS' and 'Engineering'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'B Sc In Research','MBBS' and 'Engineering' related fields.
+  </p>
+{% elif bc == ac and bc == mc and bc > ec %}
+  <p>You are equally interested in 'B Sc In Research','Aviation' and 'MBBS'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'B Sc In Research','Aviation' and 'MBBS' related fields.
+  </p>
+{% elif ec == ac and ec == mc and ec > bc %}
+  <p>You are equally interested in 'Aviation','Engineering','MBBS'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Aviation','Engineering','MBBS' related fields.
+  </p>
+{% elif bc == ac and bc > mc and bc > ec %}
+  <p>You are equally interested in 'B Sc In Research' and 'Aviation'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'B Sc In Research' and 'Aviation' related fields.
+  </p>
+{% elif bc == ec and bc > ac and bc > mc %}
+  <p>You are equally interested in 'B Sc In Research' and 'Engineering'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'B Sc In Research' and 'Engineering' related fields.
+  </p>
+{% elif bc == mc and bc > ec and bc > ac %}
+  <p>You are equally interested in 'B Sc In Research' and 'MBBS'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'B Sc In Research' and 'MBBS' related fields.
+  </p>
+{% elif ec == mc and ec > bc and ec > ac %}
+  <p>You are equally interested in 'Engineering' and 'MBBS'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Engineering' and 'MBBS' related fields.
+  </p>
+{% elif ac == ec and ac > bc and ac > mc %}
+  <p>You are equally interested in 'Aviation' and 'Engineering'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Aviation' and 'Engineering' related fields.
+  </p>
+{% elif ac == mc and ac > bc and ac > ec %}
+  <p>You are equally interested in 'Aviation' and 'MBBS'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Aviation' and 'MBBS' related fields.
+  </p>
+{% elif ec > bc and ec > ac and ec > mc %}
+  <p>You preferred 'Engineering' the most, as compared to 'B Sc In Research','Aviation' and 'MBBS'<br>
+	  Interpretation:-
+	  Your score on Engineering quentionary was at a high level. You show formidable skills in Problem-Solving, Communication, Industrial Skills, Creativity, Innovationa related skills.
+	  Overall your ability scores indicate that you have great skills in perceiving Engineering stream after 12th
+  </p>
+{% elif ac > ec and ac > bc and ac > mc %}
+  <p>You preferred 'Aviation' the most, as compared to 'Engineering','B Sc In Research' and 'MBBS'<br>
+	  Interpretation:-
+	  Your score on Aviation quentionary was at a high level. You show formidable skills in Communication, Team Work, Adaptivity, Time Management related fields.
+	  Overall your ability scores indicate that you have great skills in perceiving Aviation stream after 12th
+  </p>
+{% elif mc > ec and mc > ac and mc > bc %}
+  <p>You preferred 'MBBS' the most, as compared to 'B Sc In Research','Aviation' and 'Engineering'<br>
+	  Interpretation:-
+	  Your score on MBBS quentionary was at a high level. You show formidable skills in academic competence, communication, leadership, teamwork, and empathy related fields.
+	  Overall your ability scores indicate that you have great skills in perceiving MBBS stream after 12th
+  </p>
+{% else %}
+  <p>You preferred 'B Sc In Research'the most, as compared to 'Engineering','Aviation' and 'MBBS'<br>
+	  Interpretation:-
+	  Your score on B Sc In Research quentionary was at a high level. You show formidable skills in Problem-solving,Observational, Analytical, Experimental, Logical and Research related skills.
+	  Overall your ability scores indicate that you have great skills in perceiving B Sc In Research stream after 12th
+  </p>	
+{% endif %}
 
 <br><br><br>
 
@@ -58,9 +137,5 @@ width: 50%;">
 
 
 
-<h5>ENGG:{{engg_c}}</h5>
-<h5>AVI:{{avi_c}}</h5>
-<h5>MBBS:{{mbbs_c}}</h5>
-<h5>BSC:{{bsc_c}}</h5>
 
 {% endblock %}

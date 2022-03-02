@@ -357,7 +357,7 @@ def after12sciresult(request):
         plt.ylabel("Marks")
         plt.show()
            
-    return render(request, "after12sciresult.html", {'flag': flag,'engg_c':engg_c,'avi_c':avi_c,'mbbs_c':mbbs_c,'bsc_c':bsc_c, 'res' : res,'total':total,'perB':perB,'perE':perE,'perM':perM,'perA':perA, })
+    return render(request, "after12sciresult.html", {'flag': flag,'ec':engg_c,'ac':avi_c,'mc':mbbs_c,'bc':bsc_c, 'res' : res,'total':total,'perB':perB,'perE':perE,'perM':perM,'perA':perA, })
     return response
     
 def about(request):
