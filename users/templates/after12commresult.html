@@ -25,25 +25,104 @@ width: 50%;">
 	  </thead>
 	  <tbody>
 		<tr>
-		  <th scope="row">Interior Designing </th>
+		  <th scope="row">B.COM </th>
 		  <td>{{perB}}%</td>
 		</tr>
 		<tr>
-			<th scope="row">Journalism and mass communication</th>
+			<th scope="row">BAF</th>
 			<td>{{perF}}%</td>
 		  </tr>
 		  <tr>
-			<th scope="row">Fashion Technology </th>
+			<th scope="row">BMS </th>
 			<td>{{perM}}%</td>
 		  </tr>
 		  <tr>
-			<th scope="row">Hotel Management</th>
+			<th scope="row">CA</th>
 			<td>{{perC}}%</td>
 		  </tr>
 	</tbody>
   </table>
   <br><br>
-
+  {% if bc == fc and bc == cc and bc == mc%}
+  <p>You are equally interested in 'Bachelor of Commerce','Bachelor of Management Studies','Chartered Accountant' and 'Bachelor of Accounting and Finance'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Bachelor of Commerce','Bachelor of Management Studies','Chartered Accountant' and 'Bachelor of Accounting and Finance'' related fields.
+  </p>
+{% elif bc == fc and bc == cc and bc > mc %}
+  <p>You are equally interested in 'Bachelor of Commerce','Chartered Accountant' and 'Bachelor of Accounting and Finance'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Bachelor of Commerce','Chartered Accountant' and 'Bachelor of Accounting and Finance' related fields.
+  </p>
+{% elif bc == fc and bc == mc and bc > cc %}
+  <p>You are equally interested in 'Bachelor of Commerce','Bachelor of Management Studies' and 'Bachelor of Accounting and Finance'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Bachelor of Commerce','Bachelor of Management Studies' and 'Bachelor of Accounting and Finance' related fields.
+  </p>
+{% elif bc == cc and bc == mc and bc > fc %}
+  <p>You are equally interested in 'Bachelor of Commerce','Chartered Accountant' and 'Bachelor of Management Studies'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Bachelor of Commerce','Chartered Accountant' and 'Bachelor of Management Studies' related fields.
+  </p>
+{% elif fc == cc and fc == mc and fc > bc %}
+  <p>You are equally interested in 'Chartered Accountant','Bachelor of Accounting and Finance','Bachelor of Management Studies'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Chartered Accountant','Bachelor of Accounting and Finance','Bachelor of Management Studies' related fields.
+  </p>
+{% elif bc == cc and bc > mc and bc > fc %}
+  <p>You are equally interested in 'Bachelor of Commerce' and 'Chartered Accountant'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Bachelor of Commerce' and 'Chartered Accountant' related fields.
+  </p>
+{% elif bc == fc and bc > cc and bc > mc %}
+  <p>You are equally interested in 'Bachelor of Commerce' and 'Bachelor of Accounting and Finance'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Bachelor of Commerce' and 'Bachelor of Accounting and Finance' related fields.
+  </p>
+{% elif bc == mc and bc > fc and bc > cc %}
+  <p>You are equally interested in 'Bachelor of Commerce' and 'Bachelor of Management Studies'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Bachelor of Commerce' and 'Bachelor of Management Studies' related fields.
+  </p>
+{% elif fc == mc and fc > bc and fc > cc %}
+  <p>You are equally interested in 'Bachelor of Accounting and Finance' and 'Bachelor of Management Studies'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Bachelor of Accounting and Finance' and 'Bachelor of Management Studies' related fields.
+  </p>
+{% elif cc == fc and cc > bc and cc > mc %}
+  <p>You are equally interested in 'Chartered Accountant' and 'Bachelor of Accounting and Finance'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Chartered Accountant' and 'Bachelor of Accounting and Finance' related fields.
+  </p>
+{% elif cc == mc and cc > bc and cc > fc %}
+  <p>You are equally interested in 'Chartered Accountant' and 'Bachelor of Management Studies'<br>
+	  Interpretation :-
+	  Your score shows you have equal preferences in 'Chartered Accountant' and 'Bachelor of Management Studies' related fields.
+  </p>
+{% elif fc > bc and fc > cc and fc > mc %}
+  <p>You preferred 'Bachelor of Accounting and Finance' the most, as compared to 'Bachelor of Commerce','Chartered Accountant' and 'Bachelor of Management Studies'<br>
+	  Interpretation:-
+	  Your score on Bachelor of Accounting and Finance quentionary was at a high level. You show formidable skills in Mathematical and deductive reasoning, Critical thinking, Active learning related fields.
+	  Overall your ability scores indicate that you have great skills in perceiving Bachelor of Accounting and Finance stream after 12th
+  </p>
+{% elif cc > fc and cc > bc and cc > mc %}
+  <p>You preferred 'Chartered Accountant' the most, as compared to 'Bachelor of Accounting and Finance','Bachelor of Commerce' and 'Bachelor of Management Studies'<br>
+	  Interpretation:-
+	  Your score on Chartered Accountant quentionary was at a high level. You show formidable skills in IT proficiency, Strong analytical and problem-solving skills and general business interest and awareness related fields.
+	  Overall your ability scores indicate that you have great skills in perceiving Chartered Accountant stream after 12th
+  </p>
+{% elif mc > fc and mc > cc and mc > bc %}
+  <p>You preferred 'Bachelor of Management Studies' the most, as compared to 'Bachelor of Commerce','Chartered Accountant' and 'Bachelor of Accounting and Finance'<br>
+	  Interpretation:-
+	  Your score on Bachelor of Management Studies quentionary was at a high level. You show formidable skills in Team-building qualities, Effective communication skills, Knowledge about the current affairs related fields.
+	  Overall your ability scores indicate that you have great skills in perceiving Bachelor of Management Studies stream after 12th
+  </p>
+{% else %}
+  <p>You preferred 'Bachelor of Commerce'the most, as compared to 'Bachelor of Accounting and Finance','Chartered Accountant' and 'Bachelor of Management Studies'<br>
+	  Interpretation:-
+	  Your score on Bachelor of Commerce quentionary was at a high level. You show formidable skills in Problem-solving, Communication, Innoviate and Financial Analysis related fields.
+	  Overall your ability scores indicate that you have great skills in perceiving Bachelor of Commerce stream after 12th
+  </p>	
+{% endif %}
 
 <a href="{% url "feedbackform" %}" class="btn btn-info" role="button">Feedback Form</a>
 
@@ -54,11 +133,6 @@ width: 50%;">
 
 
 
-
-<h5>BAF:{{baf_c}}</h5>
-<h5>BMS:{{bms_c}}</h5>
-<h5>BCOM:{{bcom_c}}</h5>
-<h5>CA:{{ca_c}}</h5>
 
 
 {% endblock %}

@@ -290,7 +290,7 @@ def after12commresult(request):
         plt.ylabel("Marks")
         plt.show()
            
-    return render(request, "after12commresult.html", {'flag': flag,'bcom_c':bcom_c,'baf_c':baf_c,'bms_c':bms_c,'ca_c':ca_c, 'res' : res,'total':total,'perB':perB,'perF':perF,'perM':perM,'perC':perC, })
+    return render(request, "after12commresult.html", {'flag': flag,'bc':bcom_c,'fc':baf_c,'mc':bms_c,'cc':ca_c, 'res' : res,'total':total,'perB':perB,'perF':perF,'perM':perM,'perC':perC, })
     return response
     
 def get_questions12sci():
