@@ -25,6 +25,7 @@ urlpatterns = [
     path('after12artsresult/', users_views.after12artsresult, name='after12artsresult'),
     path('after12commresult/', users_views.after12commresult, name='after12commresult'),
     path('after12sciresult/', users_views.after12sciresult, name='after12sciresult'),
+    path('pdf/', users_views.getpdf, name='getpdf'), 
 
   
 ]
