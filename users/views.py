@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split 
 from sklearn.linear_model import LinearRegression
+from .process import html_to_pdf 
 
 # Create your views here.
 
@@ -403,3 +404,9 @@ def after12artscolleges(request):
         'colleges':colleges
     }
     return render(request, 'after12artscolleges.html',context)
+def getpdf(request):
+        pdf = html_to_pdf('after10result.html')
+        return HttpResponse(pdf, content_type='application/pdf')
+    
+    
+    
