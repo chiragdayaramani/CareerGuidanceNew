@@ -3,6 +3,8 @@ from itertools import count
 from turtle import color
 from django.shortcuts import redirect, render,HttpResponse
 from django.contrib.auth.forms import UserCreationForm
+
+import users
 from .models import Result10Count, Result12commerceCount, Result12scienceCount, User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -18,7 +20,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from .process import html_to_pdf 
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import send_mail,EmailMessage
 
 # Create your views here.
 
@@ -157,17 +159,22 @@ def after10result(request):
         plt.ylabel("Marks")
         plt.show()
         
-        subject = 'From Skhisha: A career Guide'
-        message = f'Hey {User.email}, thank you for the test, hope you enjoyed!'
-        message.attach(/pdf)
-        email_from = settings.EMAIL_HOST_USER
-        recipient_list = [user.email, ]
-        send_mail( subject, message, email_from, recipient_list )
-           
+        # subject = 'From Skhisha: A career Guide'
+        # message = f'Hey {User.email}, thank you for the test, hope you enjoyed!'
+        # message.attach(getpdf())
+        # email_from = settings.EMAIL_HOST_USER
+        # recipient_list = [users.email, ]
+        # send_mail( subject, message, email_from, recipient_list )
+
+        # pdf = html_to_pdf('after10result.html')
+        # myPDF= HttpResponse(pdf, content_type='application/pdf')  
     return render(request, "after10result.html", {'flag': flag,'sc':sc,'cc':cc,'ac':ac,'dc':dc, 'res' : res,'total':total,'perS':perS,'perA':perA,'perC':perC,'perD':perD, })
     # response = response.iloc[1:]
     return response
-    
+
+def getpdf(request):
+    pdf = html_to_pdf('after10result.html')
+    return HttpResponse(pdf, content_type='application/pdf')  
 
 
 def get_questions12arts():
@@ -413,9 +420,7 @@ def after12artscolleges(request):
         'colleges':colleges
     }
     return render(request, 'after12artscolleges.html',context)
-def getpdf(request):
-        pdf = html_to_pdf('after10result.html')
-        return HttpResponse(pdf, content_type='application/pdf')
+
     
     
     
