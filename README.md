@@ -22,6 +22,12 @@ A Career Guidance System where students can see various career opportunities ,th
 <img src="https://github.com/chiragdayaramani/CareerGuidanceNew/blob/master/Screenshots/architecture.JPG" width="900" height="500" />
 </div>
 
+## Modular Diagram
+
+<div>
+<img src="https://github.com/chiragdayaramani/CareerGuidanceNew/blob/master/Screenshots/modular.JPG" width="900" height="500" />
+</div>
+
 ## Some Screenshots of Application
 
 <div>
