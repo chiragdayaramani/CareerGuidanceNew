@@ -16,9 +16,21 @@ A Career Guidance System where students can see various career opportunities ,th
 
 * Django, and libraries mentioned in requirements.txt
 
+## Architecture of the application
+
+<div>
+<img src="https://github.com/chiragdayaramani/CareerGuidanceNew/blob/master/Screenshots/architecture.JPG" width="900" height="500" />
+</div>
+
 ## Some Screenshots of Application
 
-![alt text](http://url/to/img.png)
+<div>
+<img src="https://github.com/chiragdayaramani/CareerGuidanceNew/blob/master/Screenshots/Screenshot3.png" width="500" height="300" />
+<img src="https://github.com/chiragdayaramani/CareerGuidanceNew/blob/master/Screenshots/Screenshot2.png" width="500" height="300" />
+<img src="https://github.com/chiragdayaramani/CareerGuidanceNew/blob/master/Screenshots/graph.JPG" width="500" height="300" />
+<img src="https://github.com/chiragdayaramani/CareerGuidanceNew/blob/master/Screenshots/Screenshot1.png" width="500" height="300" />
+<img src="https://github.com/chiragdayaramani/CareerGuidanceNew/blob/master/Screenshots/Screenshot4.png" width="500" height="300" />
+</div>
 
 ## Authors
 
